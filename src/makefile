@@ -1,10 +1,4 @@
-setup:
-	@mkdir ./.build/
-	@mkdir ./.build/.tmp/
-	@mkdir ./.build/.tmp/lib/
-
-finish:
-	@rm -rf ./.build/.tmp
+all: setup link
 
 clean:
 	@rm -rf ./.build
@@ -12,13 +6,11 @@ clean:
 libs:
 	@clang -c -o ./.build/.tmp/lib/carg-parse.o ./lib/carg-parse/carg-parse.c
 
-main:
-	echo not done yet
+setup:
+	@mkdir -p ./.build/
+	@mkdir -p ./.build/.tmp/
 
-all:
-	setup
+%.o: %.c
+	clang -c -o $@ $<
 
-	libs
-	main
-
-	finish
+link: $(wildcard *.o)
