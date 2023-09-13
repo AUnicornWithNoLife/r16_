@@ -9,4 +9,6 @@ typedef enum
     unum
 } io_mode;
 
+void out(io_mode mode, void* data);
+
 #endif

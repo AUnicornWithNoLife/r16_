@@ -1,8 +1,8 @@
+#include "io.h"
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
-
-#include "io.h"
 
 void out(io_mode mode, void* data)
 {

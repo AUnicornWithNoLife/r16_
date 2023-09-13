@@ -5,7 +5,12 @@
 
 uint8_t *ram;
 
-void setup_ram()
+void ram_setup()
 {
     ram = (uint8_t*)malloc(sizeof(uint8_t) * UINT16_MAX);
+}
+
+void ram_clean()
+{
+    free(ram);
 }

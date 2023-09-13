@@ -4,6 +4,8 @@
 #include <stdint.h>
 
 uint8_t *ram;
-void setup_ram();
+
+void ram_setup();
+void ram_clean();
 
 #endif
