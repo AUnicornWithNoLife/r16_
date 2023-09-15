@@ -9,7 +9,7 @@
 
 void ops_setup()
 {
-
+    
 }
 
 cpu_op_func_ret ops_lda(cpu_op_func_args)
