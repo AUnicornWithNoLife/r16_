@@ -49,6 +49,8 @@ assemble_instruction assemble_get_op(char* name)
     {
         return assemble_new_instruction(8, none, none);
     }
+
+    return assemble_new_instruction(0, none, none);
 }
 
 assemble_instruction assemble_new_instruction(uint8_t opcode, assemble_arg_type arg1, assemble_arg_type arg2)
@@ -60,4 +62,43 @@ assemble_instruction assemble_new_instruction(uint8_t opcode, assemble_arg_type 
     ret.arg2 = arg2;
 
     return ret;
+}
+
+char* assemble_format_nice(char* str)
+{
+    char *ret = (char*)malloc(sizeof(char) * ASSEMBLE_STR_CHUNK_SIZE);
+    uint64_t len = 0;
+
+    char *r_p = ret, *s_p = str;
+
+    while (true)
+    {
+        if (*str == '\0')
+            break;
+
+        bool alphanumeric = assemble_is_alphanumeric(s_p);
+    }
+}
+
+bool assemble_is_alphanumeric(char c)
+{
+    if (c < 48)
+        return false;
+
+    if (c <= 57)
+        return true;
+
+    if (c < 65)
+        return false;
+
+    if (c <= 90)
+        return true;
+
+    if (c < 97)
+        return false;
+
+    if (c <= 122)
+        return true;
+
+    return false;
 }
