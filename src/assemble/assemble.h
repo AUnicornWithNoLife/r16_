@@ -16,6 +16,14 @@ typedef struct
     assemble_arg_type arg2;
 } assemble_instruction;
 
+typedef struct
+{
+    char* label;
+
+    uint16_t label_pointer;
+} assemble_label;
+
+
 uint8_t* assemble(char* data);
 assemble_instruction assemble_get_op(char* name);
 assemble_instruction assemble_new_instruction(uint8_t opcode, assemble_arg_type arg1, assemble_arg_type arg2);

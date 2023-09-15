@@ -15,39 +15,39 @@ assemble_instruction assemble_get_op(char* name)
 {
     if (!strcmp(name, "lda"))
     {
-
+        return assemble_new_instruction(0, ram, reg);
     }
     else if (!strcmp(name, "sta"))
     {
-
+        return assemble_new_instruction(1, reg, ram);
     }
     else if (!strcmp(name, "mov"))
     {
-
+        return assemble_new_instruction(2, reg, reg);
     }
     else if (!strcmp(name, "add"))
     {
-
+        return assemble_new_instruction(3, reg, reg);
     }
     else if (!strcmp(name, "sub"))
     {
-
+        return assemble_new_instruction(4, reg, reg);
     }
     else if (!strcmp(name, "mul"))
     {
-        
+        return assemble_new_instruction(5, reg, reg);
     }
     else if (!strcmp(name, "div"))
     {
-
+        return assemble_new_instruction(6, reg, reg);
     }
     else if (!strcmp(name, "out"))
     {
-
+        return assemble_new_instruction(7, reg, none);
     }
     else if (!strcmp(name, "stp"))
     {
-
+        return assemble_new_instruction(8, none, none);
     }
 }
 
