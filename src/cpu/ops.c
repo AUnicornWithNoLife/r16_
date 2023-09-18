@@ -257,6 +257,38 @@ cpu_op_func_ret ops_div(cpu_op_func_args)
     *acu = a / b;
 }
 
+cpu_op_func_ret ops_jmp(cpu_op_func_args)
+{
+    *inr = arg[0];
+}
+
+cpu_op_func_ret ops_jnz(cpu_op_func_args)
+{
+    uint16_t o;
+
+    switch (arg[0])
+    {
+        case 0: // 16
+        case 1: 
+        case 2: 
+        case 3:
+            o = r1[arg[0]];
+            break;
+
+        case 4: // 8????
+        case 5:
+        case 6:
+        case 7:
+            o = (uint16_t)(((uint8_t*)r1)[arg[0] - 4]);
+            break;
+    }
+
+    if (o != 0)
+    {
+        *inr = arg[1];
+    }
+}
+
 cpu_op_func_ret ops_out(cpu_op_func_args)
 {
     uint16_t o;

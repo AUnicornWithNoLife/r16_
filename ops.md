@@ -9,4 +9,7 @@ div - reg / reg = acu
 
 out - reg >>
 
+jmp - ram
+rnz - reg, ram
+
 stp - 
