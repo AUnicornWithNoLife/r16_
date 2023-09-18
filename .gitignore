@@ -53,3 +53,5 @@ dkms.conf
 
 src/.build/*
 src/assemble/__pycache__
+
+*.DS_Store
