@@ -71,7 +71,7 @@ instructions = {
     'sub': (4, ("reg", "reg")),
     'mul': (5, ("reg", "reg")),
     'div': (6, ("reg", "reg")),
-    'out': (7, ("reg", "none")),
+    'out': (7, ("reg", "ram")),
     'jmp': (8, ("ram", "none")),
     'jnz': (9, ("reg", "ram")),
     'stp': (10, ("none", "none"))

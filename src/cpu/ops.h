@@ -4,7 +4,7 @@
 #include <stdint.h>
 
 #define cpu_op_func_ret void
-#define cpu_op_func_args uint16_t op, uint16_t arg[2]
+#define cpu_op_func_args uint8_t op, uint8_t arg[2]
 
 typedef cpu_op_func_ret (*cpu_op_func)(cpu_op_func_args);
 

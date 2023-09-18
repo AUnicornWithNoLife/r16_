@@ -21,7 +21,7 @@ void out(io_mode mode, void* data)
             break;
 
         case unum:
-            printf("%d", (*(uint16_t*)(data)));
+            printf("%u", (*(uint16_t*)(data)));
             break;
     }
 }

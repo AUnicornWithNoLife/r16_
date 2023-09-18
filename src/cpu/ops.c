@@ -310,7 +310,7 @@ cpu_op_func_ret ops_out(cpu_op_func_args)
             break;
     }
 
-    out(hex, (void*)&o);
+    out((arg[1] == 0 ? hex : character), (void*)&o);
 }
 
 cpu_op_func_ret ops_stp(cpu_op_func_args)

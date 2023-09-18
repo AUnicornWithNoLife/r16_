@@ -7,9 +7,9 @@ sub - reg - reg = acu
 mul - reg * reg = acu
 div - reg / reg = acu
 
-out - reg >>
+out - reg, [0 - hex, 1 - char]
 
 jmp - ram
-rnz - reg, ram
+jnz - reg, ram
 
 stp - 
