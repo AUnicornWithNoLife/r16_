@@ -3,6 +3,8 @@ def assemble(fin: str, fout: str) -> None:
 
     file_in = open(fin, "r").read()
 
+    print(cleanup(file_in))
+
 instructions = {
     'lda': (0, ("ram", "reg")),
     'sta': (1, ("reg", "ram")),
@@ -27,6 +29,18 @@ def cleanup(sin: str) -> str:
         a = str[i]
 
         for ia in range(len(a)):
+            if (a[ia] == ' ') & (ret[len(ret) - 1] != ' '):
+                ret += ' '
+            elif is_allowed(a[ia]):
+                ret += a[ia]
+
+
+def is_allowed(c: char) -> bool:
+    if c.isalnum():
+        return True
+
+    if c == '_':
+        return True
             
 
 if __name__ == "__main__":
