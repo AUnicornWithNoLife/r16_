@@ -2,6 +2,7 @@ import struct
 
 def assemble(fin: str, fout: str) -> None:
     pointers = {'_START': 0}
+    replace = {}
 
     file_in = open(fin, "r").read()
 
@@ -10,11 +11,19 @@ def assemble(fin: str, fout: str) -> None:
     for i in range(len(f_clean)):
         if f_clean[i][0] == '_':
             pointers.update({f_clean[i].split(" ")[0]: i})
+        elif f_clean[i][0] == '#':
+            split = f_clean[i].split(" ")
+            replace.update({split[0]: split[1]})
+            del f_clean[i]
 
     ram = []
 
     for i in range(len(f_clean)):
         f_c_i = f_clean[i].split(" ")
+
+        for f in range(len(f_c_i)):
+            if f_c_i[f][0] == '#':
+                f_c_i[f] = replace[f_c_i[f]]
 
         if (f_c_i[0][0] == "_"):
             f_c_i = f_c_i[1:len(f_c_i)]
@@ -72,9 +81,10 @@ instructions = {
     'mul': (5, ("reg", "reg")),
     'div': (6, ("reg", "reg")),
     'out': (7, ("reg", "ram")),
-    'jmp': (8, ("ram", "none")),
-    'jnz': (9, ("reg", "ram")),
-    'stp': (10, ("none", "none"))
+    'inp': (8, ("ram", "none")),
+    'jmp': (9, ("ram", "none")),
+    'jnz': (10, ("reg", "ram")),
+    'stp': (11, ("none", "none"))
 }
 
 registers = [
