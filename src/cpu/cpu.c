@@ -49,16 +49,20 @@ void cpu_run()
             case 7:
                 ops_out(instruction, args);
                 break;
-            
+
             case 8:
-                ops_jmp(instruction, args);
+                ops_inp(instruction, args);
                 break;
             
             case 9:
-                ops_jnz(instruction, args);
+                ops_jmp(instruction, args);
                 break;
             
             case 10:
+                ops_jnz(instruction, args);
+                break;
+            
+            case 11:
                 ops_stp(instruction, args);
                 break;
             
