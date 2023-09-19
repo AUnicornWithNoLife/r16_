@@ -8,13 +8,18 @@ def assemble(fin: str, fout: str) -> None:
 
     f_clean = cleanup(file_in)
 
+    td = []
+
     for i in range(len(f_clean)):
         if f_clean[i][0] == '_':
             pointers.update({f_clean[i].split(" ")[0]: i})
         elif f_clean[i][0] == '#':
             split = f_clean[i].split(" ")
             replace.update({split[0]: split[1]})
-            del f_clean[i]
+            td.append(i - len(td))
+
+    for i in td:
+        f_clean.pop(i)
 
     ram = []
 
@@ -50,7 +55,7 @@ def assemble(fin: str, fout: str) -> None:
             if f_c_i[1][0] == '_':
                 ram.append(pointers[f_c_i[1]] * 3)
             else:
-                ram.append(int(f_c_i[1]))
+                ram.append(int(f_c_i[1], 16))
         elif instruct[1][0] == "reg":
             ram.append(registers.index(f_c_i[1]))
 
@@ -62,7 +67,7 @@ def assemble(fin: str, fout: str) -> None:
             if f_c_i[2][0] == '_':
                 ram.append(pointers[f_c_i[2]] * 3)
             else:
-                ram.append(int(f_c_i[2]))
+                ram.append(int(f_c_i[2], 16))
         elif instruct[1][1] == "reg":
             ram.append(registers.index(f_c_i[2]))
 
