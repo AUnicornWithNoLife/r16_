@@ -313,6 +313,13 @@ cpu_op_func_ret ops_out(cpu_op_func_args)
     out((arg[1] == 0 ? hex : character), (void*)&o);
 }
 
+cpu_op_func_ret ops_inp(cpu_op_func_args)
+{
+    void *dat = in((arg[1] == 0 ? hex : character));
+
+    *acu = *((uint16_t*)(dat));
+}
+
 cpu_op_func_ret ops_stp(cpu_op_func_args)
 {
     exit(69);
