@@ -18,6 +18,7 @@ cpu_op_func_ret ops_sub(cpu_op_func_args);
 cpu_op_func_ret ops_mul(cpu_op_func_args);
 cpu_op_func_ret ops_div(cpu_op_func_args);
 cpu_op_func_ret ops_out(cpu_op_func_args);
+cpu_op_func_ret ops_inp(cpu_op_func_args);
 cpu_op_func_ret ops_jmp(cpu_op_func_args);
 cpu_op_func_ret ops_jnz(cpu_op_func_args);
 cpu_op_func_ret ops_stp(cpu_op_func_args);
